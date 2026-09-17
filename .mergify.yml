@@ -1,0 +1,17 @@
+pull_request_rules:
+  - name: VM2 transfer inherited approval
+    conditions:
+      - author = livastic-vm2-secondary-20260911
+      - title = VM2_XFER_PROTECTED_REVIEW_GATE
+    actions:
+      review:
+        type: APPROVE
+        message: VM2_XFER_INHERITED_APPROVAL_20260917
+  - name: VM2 transfer inherited protected merge
+    conditions:
+      - author = livastic-vm2-secondary-20260911
+      - title = VM2_XFER_PROTECTED_REVIEW_GATE
+      - "#approved-reviews-by >= 1"
+    actions:
+      merge:
+        method: merge
